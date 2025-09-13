@@ -8,6 +8,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Menú hamburguesa móvil -->
+    <div id="mobile-menu-btn" style="display:none;position:fixed;top:24px;right:24px;z-index:10001;">
+      <div class="liquid-burger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div id="mobile-nav-overlay" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:10000;"></div>
+    <nav id="mobile-nav" style="display:none;position:fixed;top:0;right:0;width:80vw;max-width:340px;height:100vh;background:rgba(10,10,10,0.98);z-index:10001;flex-direction:column;align-items:center;justify-content:center;box-shadow:-8px 0 32px #8f00ff88;border-top-left-radius:40px;border-bottom-left-radius:40px;overflow:hidden;">
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:32px;align-items:center;">
+        <li><a href="#home" class="lang en">Home</a><a href="#home" class="lang es">Inicio</a></li>
+        <li><a href="#about" class="lang en">About</a><a href="#about" class="lang es">Sobre mí</a></li>
+        <li><a href="#skills" class="lang en">Skills</a><a href="#skills" class="lang es">Habilidades</a></li>
+        <li><a href="#projects" class="lang en">Projects</a><a href="#projects" class="lang es">Proyectos</a></li>
+        <li><a href="#certifications" class="lang en">Certifications</a><a href="#certifications" class="lang es">Certificaciones</a></li>
+        <li><a href="https://drive.google.com/file/d/1svGqUpCYeS86hHx_O6e3AN_hRLFcQzBX/view?usp=sharing" target="_blank" class="lang en cv-link">CV</a><a href="https://drive.google.com/file/d/1kfwad1mnKJnQhYp2hH7qbxxyU4FcXpAS/view?usp=sharing" target="_blank" class="lang es cv-link">CV</a></li>
+        <li><a href="#contact" class="lang en">Contact</a><a href="#contact" class="lang es">Contacto</a></li>
+      </ul>
+      <div class="language-toggle" style="margin-top:32px;display:flex;gap:12px;">
+        <button id="en-btn-mobile">EN</button>
+        <button id="es-btn-mobile">ES</button>
+      </div>
+    </nav>
     <!-- Botón flotante de WhatsApp -->
     <!-- Botón flotante WhatsApp con selector de mensaje -->
     <a href="#" id="whatsapp-btn" title="Consulta QA por WhatsApp">
