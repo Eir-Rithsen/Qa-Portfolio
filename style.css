@@ -1,4 +1,67 @@
 /* style.css */
+/* Botón flotante WhatsApp */
+#whatsapp-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+  background: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 0 16px 4px #25d36688, 0 0 8px 2px #fff;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+  animation: whatsappGlow 1.2s infinite;
+}
+
+#whatsapp-btn:hover {
+  box-shadow: 0 0 32px 8px #25d366cc, 0 0 16px 4px #fff;
+  transform: scale(1.08);
+}
+
+@keyframes whatsappGlow {
+  0%, 100% {
+    box-shadow: 0 0 16px 4px #25d36688, 0 0 8px 2px #fff;
+  }
+  50% {
+    box-shadow: 0 0 32px 8px #25d366cc, 0 0 16px 4px #fff;
+  }
+}
+/* Loader Neon */
+#loader-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0a0a0a;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-spinner {
+  width: 64px;
+  height: 64px;
+  border: 6px solid #8f00ff;
+  border-top: 6px solid #00bcd4;
+  border-radius: 50%;
+  animation: spinLoader 1s linear infinite, glowLoader 1.2s ease-in-out infinite;
+  box-shadow: 0 0 24px 6px #8f00ff88, 0 0 24px 6px #00bcd488;
+}
+
+@keyframes spinLoader {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes glowLoader {
+  0%, 100% { box-shadow: 0 0 24px 6px #8f00ff88, 0 0 24px 6px #00bcd488; }
+  50% { box-shadow: 0 0 48px 12px #8f00ffcc, 0 0 48px 12px #00bcd4cc; }
+}
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
 body {
@@ -12,7 +75,7 @@ body {
 
 /* Header */
 header {
-  background: #222;
+  background: #151414
   color: #fff;
   padding: 15px 30px;
   position: sticky;
@@ -39,11 +102,34 @@ nav ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s;
+  border: 2px solid transparent;
+  border-radius: 24px;
+  padding: 8px 18px;
+  box-shadow: 0 0 8px 2px rgba(143,0,255,0.18), 0 0 8px 2px rgba(0,188,212,0.18);
+  background: rgba(143,0,255,0.08);
+  transition: color 0.3s, box-shadow 0.3s, background 0.3s, border 0.3s;
+}
+nav ul li a.cv-link {
+  color: #8f00ff;
+  font-weight: 700;
+  border: 2px solid #8f00ff;
+  border-radius: 24px;
+  padding: 8px 18px;
+  box-shadow: 0 0 12px 3px #8f00ff88, 0 0 12px 3px #00bcd488;
+  background: rgba(143,0,255,0.12);
+}
+nav ul li a.cv-link:hover {
+  background: #8f00ff;
+  color: #fff;
+  box-shadow: 0 0 16px 4px #8f00ff88, 0 0 16px 4px #00bcd488;
+}
 }
 
 nav ul li a:hover {
-  color: #00bcd4;
+  color: #fff;
+  background: linear-gradient(90deg, #8f00ff 0%, #00bcd4 100%);
+  border: 2px solid #8f00ff;
+  box-shadow: 0 0 16px 4px #8f00ff88, 0 0 16px 4px #00bcd488;
 }
 
 .language-toggle button {
@@ -55,7 +141,12 @@ nav ul li a:hover {
   cursor: pointer;
   border-radius: 25px;
   font-weight: 500;
-  transition: background 0.3s;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.language-toggle button.selected {
+  box-shadow: 0 0 12px 3px #8f00ff88, 0 0 12px 3px #00bcd488;
+  background: linear-gradient(90deg, #8f00ff 0%, #00bcd4 100%);
+  color: #fff;
 }
 
 .language-toggle button:hover {
@@ -63,6 +154,16 @@ nav ul li a:hover {
 }
 
 /* Hero */
+#about, #skills, #projects, #certifications, #contact {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
+}
+
+.section-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
 #home {
   display: flex;
   flex-direction: column;
@@ -108,7 +209,24 @@ nav ul li a:hover {
   border-radius: 25px;
   text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s;
+  box-shadow: 0 0 12px 2px #8f00ff44, 0 0 12px 2px #00bcd444;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+  animation: pulseGlow 1.2s infinite;
+#home .btn:hover {
+  background: linear-gradient(90deg, #8f00ff 0%, #00bcd4 100%);
+  color: #fff;
+  box-shadow: 0 0 24px 6px #8f00ff88, 0 0 24px 6px #00bcd488;
+  transform: scale(1.07);
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 12px 2px #8f00ff44, 0 0 12px 2px #00bcd444;
+  }
+  50% {
+    box-shadow: 0 0 24px 6px #8f00ff88, 0 0 24px 6px #00bcd488;
+  }
+}
 }
 
 #home .btn:hover {
