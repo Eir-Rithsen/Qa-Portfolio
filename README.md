@@ -3,7 +3,7 @@
 
 This is my personal portfolio as a **QA Tester Jr** (Manual & Automation). It showcases my skills, projects, certifications, and contact information. The portfolio is **bilingual (EN/ES)**, with English as the default language.
 
-🌐 **Live Demo (GitHub Pages):** 
+🌐 **Live Demo (GitHub Pages):** (https://eir-rithsen.github.io/Qa-Portfolio/)
 
 ---
 
