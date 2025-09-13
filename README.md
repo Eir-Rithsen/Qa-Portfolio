@@ -59,4 +59,3 @@ qa-portfolio/
 
 ---
 
-✨ Deploy easily on **GitHub Pages** by pushing this repo and enabling Pages in settings.
