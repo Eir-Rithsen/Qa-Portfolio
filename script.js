@@ -1,3 +1,67 @@
+// Menú hamburguesa responsive móvil
+document.addEventListener('DOMContentLoaded', function() {
+  var mobileBtn = document.getElementById('mobile-menu-btn');
+  var mobileNav = document.getElementById('mobile-nav');
+  var mobileOverlay = document.getElementById('mobile-nav-overlay');
+  var enBtnMobile = document.getElementById('en-btn-mobile');
+  var esBtnMobile = document.getElementById('es-btn-mobile');
+  var elements = document.querySelectorAll('.lang');
+  var currentLang = 'en';
+
+  function setMobileLanguage(lang) {
+    elements.forEach(el => {
+      el.style.display = el.classList.contains(lang) ? 'block' : 'none';
+    });
+    currentLang = lang;
+    if (enBtnMobile) {
+      enBtnMobile.classList.toggle('selected', lang === 'en');
+    }
+    if (esBtnMobile) {
+      esBtnMobile.classList.toggle('selected', lang === 'es');
+    }
+    // Sincroniza idioma con WhatsApp modal
+    if (typeof updateWhatsappOptions === 'function') {
+      updateWhatsappOptions(lang);
+    }
+  }
+
+  function openMobileMenu() {
+    mobileNav.style.display = 'flex';
+    mobileOverlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    mobileNav.style.display = 'none';
+    mobileOverlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  if (mobileBtn && mobileNav && mobileOverlay) {
+    mobileBtn.addEventListener('click', function() {
+      openMobileMenu();
+    });
+    mobileOverlay.addEventListener('click', function() {
+      closeMobileMenu();
+    });
+    Array.from(mobileNav.querySelectorAll('a')).forEach(function(link) {
+      link.addEventListener('click', function() {
+        closeMobileMenu();
+      });
+    });
+    if (enBtnMobile) {
+      enBtnMobile.addEventListener('click', function() {
+        setMobileLanguage('en');
+      });
+    }
+    if (esBtnMobile) {
+      esBtnMobile.addEventListener('click', function() {
+        setMobileLanguage('es');
+      });
+    }
+    // Inicializa idioma
+    setMobileLanguage('en');
+  }
+});
 // WhatsApp modal selector
 document.addEventListener('DOMContentLoaded', function() {
   var btn = document.getElementById('whatsapp-btn');
