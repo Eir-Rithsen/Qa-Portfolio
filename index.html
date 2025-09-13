@@ -8,6 +8,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Botón flotante de WhatsApp -->
+    <!-- Botón flotante WhatsApp con selector de mensaje -->
+    <a href="#" id="whatsapp-btn" title="Consulta QA por WhatsApp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:48px;height:48px;">
+    </a>
+
+    <div id="whatsapp-modal" style="display:none;position:fixed;right:32px;bottom:90px;z-index:10000;background:#151414ee;padding:24px 18px 18px 18px;border-radius:18px;box-shadow:0 0 32px #25d36688;max-width:320px;">
+      <h3 style="color:#25d366;margin-top:0;margin-bottom:12px;font-size:1.1rem;">Selecciona tu mensaje:</h3>
+      <form id="whatsapp-form" style="display:flex;flex-direction:column;gap:10px;">
+        <select id="whatsapp-select" style="padding:8px;border-radius:8px;border:none;font-size:1rem;">
+          <option value="Hola Iván, estoy interesado en tus servicios de QA Testing. ¿Podrías brindarme información sobre tus propuestas y disponibilidad?">Consulta sobre propuestas y disponibilidad</option>
+          <option value="¡Hola! Quisiera saber cómo podrías ayudarme a mejorar la calidad de mi software con tus servicios de testing QA.">Mejorar calidad de software</option>
+          <option value="Hola Iván, tengo un proyecto y necesito soporte en pruebas de calidad. ¿Podrías asesorarme sobre tus servicios y experiencia?">Soporte en pruebas de calidad</option>
+          <option value="Hola, me gustaría recibir una cotización y detalles sobre tus servicios de QA para mi empresa/proyecto.">Cotización y detalles de servicios</option>
+          <option value="Hola Iván, ¿qué tipo de pruebas y herramientas utilizas en tus servicios de QA? Estoy buscando colaboración para mi proyecto.">Tipo de pruebas y herramientas</option>
+        </select>
+        <input type="text" id="whatsapp-custom" placeholder="Escribe tu mensaje personalizado..." style="padding:8px;border-radius:8px;border:none;font-size:1rem;">
+        <button type="submit" style="background:#25d366;color:#fff;border:none;border-radius:8px;padding:10px;font-weight:600;cursor:pointer;box-shadow:0 0 8px #25d36688;">Enviar por WhatsApp</button>
+        <button type="button" id="whatsapp-close" style="background:#222;color:#fff;border:none;border-radius:8px;padding:8px;font-size:0.9rem;cursor:pointer;">Cancelar</button>
+      </form>
+    </div>
+    <!-- Loader Neon -->
+    <div id="loader-bg">
+      <div class="loader-spinner"></div>
+    </div>
   <header>
     <nav>
       <ul>
@@ -16,6 +41,7 @@
         <li><a href="#skills" class="lang en">Skills</a><a href="#skills" class="lang es">Habilidades</a></li>
         <li><a href="#projects" class="lang en">Projects</a><a href="#projects" class="lang es">Proyectos</a></li>
         <li><a href="#certifications" class="lang en">Certifications</a><a href="#certifications" class="lang es">Certificaciones</a></li>
+  <li><a href="https://drive.google.com/file/d/1svGqUpCYeS86hHx_O6e3AN_hRLFcQzBX/view?usp=sharing" target="_blank" class="lang en cv-link">CV</a><a href="https://drive.google.com/file/d/1kfwad1mnKJnQhYp2hH7qbxxyU4FcXpAS/view?usp=sharing" target="_blank" class="lang es cv-link">CV</a></li>
         <li><a href="#contact" class="lang en">Contact</a><a href="#contact" class="lang es">Contacto</a></li>
       </ul>
       <div class="language-toggle">
@@ -29,14 +55,14 @@
   <section id="home">
     <div class="lang en">
       <img src="profile.jpg" alt="Iván Collar" class="profile-pic">
-      <h1>Hello, I'm Iván Collar</h1>
-      <p>QA Tester Jr | Manual & Automation</p>
+      <h1 id="main-title-en">Hello, I'm Iván Collar</h1>
+      <p id="main-role-en">QA Tester Jr | Manual & Automation</p>
       <a href="#contact" class="btn">Contact Me</a>
     </div>
     <div class="lang es">
       <img src="profile.jpg" alt="Iván Collar" class="profile-pic">
-      <h1>Hola, soy Iván Collar</h1>
-      <p>QA Tester Jr | Manual & Automatización</p>
+      <h1 id="main-title-es">Hola, soy Iván Collar</h1>
+      <p id="main-role-es">QA Tester Jr | Manual & Automatización</p>
       <a href="#contact" class="btn">Contáctame</a>
     </div>
   </section>
@@ -128,19 +154,19 @@
     <div class="lang en">
       <h2>Certifications</h2>
       <ul class="skills-list">
-        <li>EF SET English C1 Advanced</li>
-        <li>Codo a Codo 4.0 Testing QA</li>
-        <li>SQL Intermediate</li>
-        <li>UBA Idiomas (CUI)</li>
+  <li><a href="https://www.efset.org/cert/oGfa9r" target="_blank">EF SET English C1 Advanced</a></li>
+  <li>Codo a Codo 4.0 Testing QA</li>
+  <li><a href="https://api2.sololearn.com/v2/certificates/CC-TV1NZM6A/image/png?t=638686023833931070" target="_blank">SQL Intermediate</a></li>
+  <li><a href="https://api2.sololearn.com/v2/certificates/CC-QZET5RZT/image/png?t=638711146642625940" target="_blank">Angular</a></li>
       </ul>
     </div>
     <div class="lang es">
       <h2>Certificaciones</h2>
       <ul class="skills-list">
-        <li>EF SET English C1 Avanzado</li>
-        <li>Codo a Codo 4.0 Testing QA</li>
-        <li>SQL Intermedio</li>
-        <li>UBA Idiomas (CUI)</li>
+  <li><a href="https://www.efset.org/cert/oGfa9r" target="_blank">EF SET English C1 Avanzado</a></li>
+  <li>Codo a Codo 4.0 Testing QA</li>
+  <li><a href="https://api2.sololearn.com/v2/certificates/CC-TV1NZM6A/image/png?t=638686023833931070" target="_blank">SQL Intermedio</a></li>
+  <li><a href="https://api2.sololearn.com/v2/certificates/CC-QZET5RZT/image/png?t=638711146642625940" target="_blank">Angular</a></li>
       </ul>
     </div>
   </section>
@@ -162,5 +188,6 @@
   </section>
 
   <script src="script.js"></script>
+  <script src="particles-bg.js"></script>
 </body>
 </html>
